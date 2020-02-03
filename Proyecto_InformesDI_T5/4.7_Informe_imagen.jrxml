@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="4.7_Subinforme_imagen" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a2846ea1-f088-4874-b315-614b08dbd86e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HSQLDB"/>
+	<parameter name="ID_CONTACTO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM CONTACTOS]]>
+	</queryString>
+	<field name="NOMBRE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CONTACTOS"/>
+	</field>
+	<field name="CIUDAD" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CIUDAD"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CONTACTOS"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="20" width="165" height="40" uuid="9c155f20-b37d-4ae0-84bf-fa9d1490d30b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="26"/>
+				</textElement>
+				<text><![CDATA[AGENDA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="120" y="10" width="60" height="55" uuid="32459954-2825-4a09-ad83-1e328568589e"/>
+				<imageExpression><![CDATA["4.7_icono_agenda.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="100" height="30" uuid="154111ff-cb62-4f72-a424-cb9f49f73003"/>
+				<textElement>
+					<font fontName="Serif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="9" width="100" height="30" uuid="c6cdd043-143a-41f9-ac7d-9029ef99ca99"/>
+				<textElement>
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="343" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="595" height="60" forecolor="#B0A1FF" backcolor="#FC65D9" uuid="ee4e2c7d-de56-4a99-9eec-c7f25db3c609"/>
+				<line>
+					<reportElement positionType="Float" x="0" y="70" width="595" height="1" isRemoveLineWhenBlank="true" uuid="b47c081f-fac2-4a88-a3c3-bf4c098ea344"/>
+				</line>
+				<textField>
+					<reportElement x="20" y="10" width="120" height="39" uuid="033ba22a-1a8f-4edc-86b8-0feb59040b97">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e937c4a2-6f0b-4608-a9f4-05e51d9d1a66"/>
+					</reportElement>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="410" y="10" width="120" height="38" uuid="b3cbb890-9b75-4606-ba57-b4b106b9dd04">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1b69c129-4c1a-40f2-a9fe-39fdd2bd2cf2"/>
+					</reportElement>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CIUDAD}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement x="-20" y="80" width="215" height="151" uuid="e040ebbf-a7de-41ef-a531-43001ea9e920"/>
+				<subreportParameter name="ID_CONTACTO">
+					<subreportParameterExpression><![CDATA[$P{ID_CONTACTO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["4.7_SubinformeCorreo.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="345" y="80" width="229" height="151" uuid="77da53c1-3645-4221-802c-5417c45e0230"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["4.7_SubinformeTelefonos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>
