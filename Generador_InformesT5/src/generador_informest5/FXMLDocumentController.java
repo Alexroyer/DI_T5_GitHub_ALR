@@ -188,17 +188,7 @@ public class FXMLDocumentController implements Initializable
         
     }
 
-    private void salir(ActionEvent event)
-    {        
-        exit(0);
-    }
-
-    
-  
-
-    
-    
-   
+ 
 
 }
 
